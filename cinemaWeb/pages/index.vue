@@ -6,10 +6,6 @@
 				<h1 class="title">
 					Cinema Archive
 				</h1>
-				<div>
-					<v-btn v-on:click="counter += 1">Add 1</v-btn>
-					<p>The button above has been clicked {{ counter }} times.</p>
-				</div>
 			</div>
 				<v-btn class="btn-down" @click="$vuetify.goTo('#test')">
 					<i class="material-icons md-48">arrow_downward</i>
@@ -29,7 +25,6 @@
 	export default {
 		data () {
 			return {
-				counter: 0,
 			}
 		},
 		computed: {
@@ -75,12 +70,13 @@
 .page {
 	height: 100vh;
 	border: solid thin;
-	background-color: #252420;
+	background-color: #3A3936;
 }
 .content {
 	background-color: #FFFDF9;
-	margin: 1em;
-	padding: 1em;
+	width: 80%;
+	height: 60vh;
+	margin: auto;
 }
 </style>
 
