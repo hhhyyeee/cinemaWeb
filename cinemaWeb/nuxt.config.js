@@ -33,13 +33,17 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
   },
   modules: [
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/axios',
   ],
   vuetify: {
     //  theme: { }
+  },
+  axios: {
+    // proxyHeaders: false
   }
 }
 
