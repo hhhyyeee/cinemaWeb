@@ -6,7 +6,7 @@
 				<h1 class="title">
 					Cinema Archive
 				</h1>
-				<div class="text-center">
+				<div class="text-center" v-if="session.valid">
 					<v-dialog
 							v-model="dialog"
 							width="30%"
@@ -63,11 +63,12 @@
 						</v-card>
 					</v-dialog>
 				</div>
+				<div v-else=""></div>
 
 			</div>
-				<v-btn class="btn-down" @click="$vuetify.goTo('#test')">
-					<i class="material-icons md-48">arrow_downward</i>
-				</v-btn>
+			<v-btn class="btn-down" @click="$vuetify.goTo('#test')">
+				<i class="material-icons md-48">arrow_downward</i>
+			</v-btn>
 		</div>
 		<div id="test" class="page">
 			<div class="content">
@@ -97,6 +98,9 @@
                     v => v.length >= 8 || 'Password must be longer than 8 characters'
                 ],
                 showPassword: false,
+				session: {
+				    valid: true,
+				}
 			}
 		},
 		methods: {
@@ -116,8 +120,12 @@
 							this.password = '';
 							this.signinErr = true;
 						})
-			}
+			},
 		},
+        async asyncData({ $axios }) {
+            const session = await $axios.$get('http://icanhazip.com')
+            return session
+        },
 		computed: {
 		},
 		components: {

@@ -1,6 +1,8 @@
 <template>
     <v-container fluid ma-0 pa-0>
-        <div class="page">
+        <div
+                class="page"
+        >
             <h1>Signed In Redirection Page</h1>
         </div>
     </v-container>
@@ -8,7 +10,11 @@
 
 <script>
     export default {
-        name: "signedin"
+        name: "signedin",
+        data () {
+            return {
+            }
+        }
     }
 </script>
 

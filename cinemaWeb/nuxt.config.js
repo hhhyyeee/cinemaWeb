@@ -38,6 +38,7 @@ module.exports = {
   modules: [
     '@nuxtjs/vuetify',
     '@nuxtjs/axios',
+    'nuxt-session',
   ],
   vuetify: {
     //  theme: { }
