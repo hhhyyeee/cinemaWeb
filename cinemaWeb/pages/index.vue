@@ -6,7 +6,7 @@
 				<h1 class="title">
 					Cinema Archive
 				</h1>
-				<div class="text-center" v-if="session.valid">
+				<div class="text-center" v-if="!ifloggedin">
 					<v-dialog
 							v-model="dialog"
 							width="30%"
@@ -63,7 +63,9 @@
 						</v-card>
 					</v-dialog>
 				</div>
-				<div v-else=""></div>
+				<div v-else>
+					<p>You're logged in.</p>
+				</div>
 
 			</div>
 			<v-btn class="btn-down" @click="$vuetify.goTo('#test')">
@@ -98,9 +100,6 @@
                     v => v.length >= 8 || 'Password must be longer than 8 characters'
                 ],
                 showPassword: false,
-				session: {
-				    valid: true,
-				}
 			}
 		},
 		methods: {
@@ -112,19 +111,25 @@
 							password: password
 						})
 						.then((response) => {
+                            console.log(">> post result <<")
 							console.log(response)
-							this.$router.push('/auth/signedin')
+							this.dialog = false
+							this.$router.push('/')
 						})
 						.catch((error) => {
-							this.email = '';
-							this.password = '';
-							this.signinErr = true;
+							this.email = ''
+							this.password = ''
+							this.signinErr = true
 						})
 			},
 		},
         async asyncData({ $axios }) {
-            const session = await $axios.$get('http://icanhazip.com')
-            return session
+            const cookies = await $axios.$get('http://localhost:3030/api/auth/signedstatus')
+			console.log(">> signedstatus <<")
+			console.log(cookies.email)
+            return {
+                ifloggedin: cookies.email
+			}
         },
 		computed: {
 		},
