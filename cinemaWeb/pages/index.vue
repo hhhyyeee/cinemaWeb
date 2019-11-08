@@ -6,71 +6,82 @@
 				<h1 class="title">
 					Cinema Archive
 				</h1>
-				<div class="text-center" v-if="!ifloggedin">
-					<v-dialog
-							v-model="dialog"
-							width="30%"
-					>
-						<template v-slot:activator="{ on }">
-							<v-btn
-									color="red lighten-2"
-									dark
-									v-on="on"
-							>
-								Sign In
-							</v-btn>
-						</template>
-
-						<v-card>
-							<v-card-title
-									class="headline grey lighten-2"
-									primary-title
-							>
-								Sign In
-							</v-card-title>
-							<v-form class="signinForm">
-								<v-text-field
-										v-model="email"
-										:rules="emailRules"
-										label="Email"
-										required
-								></v-text-field>
-								<v-text-field
-										v-model="password"
-                                        :append-icon="showPassword ? 'visibility' : 'visibility_off'"
-										:rules="passwordRules"
-                                        :type="showPassword ? 'text' : 'password'"
-										label="Password"
-										required
-                                        @click:append="showPassword = !showPassword"
-								></v-text-field>
-							</v-form>
-							<v-card-text class="errMsg"
-										 v-if="signinErr"
-							> {{ signinErrMsg }} </v-card-text>
-
-							<v-divider></v-divider>
-
-							<v-card-actions>
+				<div>
+					<span v-if="!ifloggedin">
+						<v-dialog
+								v-model="dialog"
+								width="30%"
+						>
+							<template v-slot:activator="{ on }">
 								<v-btn
-										color="grey"
-										text
-										@click="signInSubmit(email, password)"
+										color="red lighten-2"
+										dark
+										v-on="on"
 								>
 									Sign In
 								</v-btn>
-							</v-card-actions>
-						</v-card>
-					</v-dialog>
-				</div>
-				<div v-else>
-					<p>You're logged in.</p>
-				</div>
+							</template>
+							<v-card>
+								<v-card-title
+										class="headline grey lighten-2"
+										primary-title
+								>
+									Sign In
+								</v-card-title>
+								<v-form class="signinForm">
+									<v-text-field
+											v-model="email"
+											:rules="emailRules"
+											label="Email"
+											required
+									></v-text-field>
+									<v-text-field
+											v-model="password"
+											:append-icon="showPassword ? 'visibility' : 'visibility_off'"
+											:rules="passwordRules"
+											:type="showPassword ? 'text' : 'password'"
+											label="Password"
+											required
+											@click:append="showPassword = !showPassword"
+									></v-text-field>
+								</v-form>
+								<v-card-text class="errMsg"
+											 v-if="signinErr"
+								> {{ signinErrMsg }} </v-card-text>
 
+								<v-divider></v-divider>
+
+								<v-card-actions>
+									<v-btn
+											color="grey"
+											text
+											@click="signInSubmit(email, password)"
+									>
+										Sign In
+									</v-btn>
+								</v-card-actions>
+							</v-card>
+						</v-dialog>
+					</span>
+					<span v-else>
+						<p>You're logged in.</p>
+					</span>
+
+					<span class="text-center" v-if="!ifloggedin">
+						<v-btn
+								color="grey"
+								text
+						>
+							Register
+						</v-btn>
+					</span>
+				</div>
 			</div>
+
 			<v-btn class="btn-down" @click="$vuetify.goTo('#test')">
 				<i class="material-icons md-48">arrow_downward</i>
 			</v-btn>
+
 		</div>
 		<div id="test" class="page">
 			<div class="content">
