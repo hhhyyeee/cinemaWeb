@@ -16,7 +16,7 @@
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/vuetify": "^0.5.7",
     "express-session": "^1.17.0",
-    "nuxt": "^2.10.2",
+    "nuxt": "^2.15.8",
     "nuxt-session": "^1.0.3"
   },
   "devDependencies": {
