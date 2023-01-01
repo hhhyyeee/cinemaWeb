@@ -16,14 +16,14 @@
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/vuetify": "^0.5.7",
     "express-session": "^1.17.0",
-    "nuxt": "^2.10.2",
+    "nuxt": "^3.0.0",
     "nuxt-session": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.2.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^4.0.0"
   }
 }
